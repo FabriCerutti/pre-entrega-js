@@ -1,3 +1,4 @@
+    alert("Calculadora de costo para saber si te queda plata para poder ir al supermercado")
     const salario = parseInt(prompt("ingresa tu salario"));
     
     function costoVida(gastoAlquiler, gastoLuz, gastoGas, gastoAgua, gastoExpensas, gastoInternet){
