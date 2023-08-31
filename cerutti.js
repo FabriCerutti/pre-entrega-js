@@ -1,21 +1,48 @@
-    alert("Calculadora de costo para saber si te queda plata para poder ir al supermercado")
-    const salario = parseInt(prompt("ingresa tu salario"));
+    //calculadora de gastos 
     
-    function costoVida(gastoAlquiler, gastoLuz, gastoGas, gastoAgua, gastoExpensas, gastoInternet){
-        const sumaDegastoTotal = gastoAlquiler + gastoLuz + gastoGas + gastoAgua + gastoExpensas + gastoInternet
-        const gastoTotal = sumaDegastoTotal 
-        if(salario > gastoTotal){
-            alert("podes ir al supermercado")
-        } else{
-            alert("no podes ir al supermercado")
-        }
-    }
-    
-    const gastoAlquiler = parseFloat(prompt("ingresa el valor del alquiler"));
-    const gastoLuz = parseFloat(prompt("ingresa el valor de la luz"));
-    const gastoGas = parseFloat(prompt("ingresa el valor del gas"));
-    const gastoAgua = parseFloat(prompt("ingresa el valor del agua"));
-    const gastoExpensas = parseFloat(prompt("ingresa el valor del expensas"));
-    const gastoInternet = parseFloat(prompt("ingresa el valor del internet"));
+    //mensaje de entrada
+    alert("Calculadora de gastos")
 
-    costoVida(gastoAlquiler, gastoLuz, gastoGas, gastoAgua, gastoExpensas, gastoInternet)
+    // Objeto que representa un gasto
+    function Gasto(nombre, cantidad) {
+    this.nombre = nombre;
+    this.cantidad = cantidad;
+  }
+  
+    // Array para almacenar los gastos
+    let listaGastos = [];
+  
+    // Función para agregar un gasto a la lista
+    function agregarGasto(nombre, cantidad) {
+    let nuevoGasto = new Gasto(nombre, cantidad);
+    listaGastos.push(nuevoGasto);
+  }
+  
+    // Función para calcular el total de gastos
+    function calcularTotalGastos() {
+        let total = 0;
+        for (let gasto of listaGastos) {
+      total += gasto.cantidad;
+    }
+    return total;
+  }
+  
+    // El usuario ingresa el nombre del gasto y la cantidad del gasto
+    while (true) {
+    let nombreGasto = prompt("Ingrese el nombre del gasto (o 'fin' para finalizar):");
+    if (nombreGasto.toLowerCase() === "fin") {
+      break;
+    }
+    let cantidadGasto = parseFloat(prompt("Ingrese la cantidad del gasto:"));
+    agregarGasto(nombreGasto, cantidadGasto);
+  }
+  
+     // Calcular el total de gastos
+    let totalGastos = calcularTotalGastos();
+  
+
+    alert(`Total de gastos: $${totalGastos}`); 
+
+    console.log(`Total de gastos: $${totalGastos}`);
+
+
