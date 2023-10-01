@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Servicios",
+    "cantidad": 50.25
+  },
+  {
+    "nombre": "Transporte",
+    "cantidad": 30.00
+  },
+  {
+    "nombre": "Entretenimiento",
+    "cantidad": 15.75
+  },
+  {
+    "nombre": "Compras",
+    "cantidad": 75.50
+  }
+]
+  
+  

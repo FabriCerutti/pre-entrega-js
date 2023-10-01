@@ -1,66 +1,78 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* Estilos generales */
+body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
-}
-
-h1 {
-    background-color: #c00909;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-div {
-    background-color: #fff;
+    background-color: #0e7c40; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilo para el contenedor principal */
+  .container {
+    max-width: 600px;
     padding: 20px;
-    margin: 20px auto;
-    max-width: 400px;
+    background-color: #fff; /* Color de fondo del contenedor */
+    border: 1px solid #e0e0e0;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center; 
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="number"] {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para los elementos de entrada y botón */
+  input[type="text"],
+  input[type="number"],
+  button {
+    margin: 20px 0px;
+    padding: 15px 0px;
     width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
-
-button {
-    background-color: #c00909;
+  }
+  
+  /* Estilo para el botón */
+  button {
+    background-color: #077a3b;
     color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
     cursor: pointer;
-    width: 100%; 
-}
-
-ul {
-    list-style-type: none;
+  }
+  
+  button:hover {
+    background-color: #095221;
+  }
+  
+  /* Estilo para la lista de gastos */
+  #listaGastos {
+    list-style: none;
     padding: 0;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-p {
-    text-align: center;
-    margin-top: 20px;
+  }
+  
+  #listaGastos li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #listaGastos li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilo para el total de gastos */
+  #totalGastos {
+    font-size: 20px;
     font-weight: bold;
-}
-
-#totalGastos {
-    color: #c00909;
-}
+    margin-top: 20px;
+    color: #074722;
+  }
+  
+  /* Estilo para los encabezados */
+  h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #074722;
+  }

@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preentrega Cerutti</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css"> 
 </head>
 <body>
-    <h1>Calculadora de Gastos</h1>
-    <div>
-        <label for="nombreGasto">Nombre del gasto:</label>
-        <input type="text" id="nombreGasto">
-        <br>
-        <label for="cantidadGasto">Cantidad del gasto:</label>
-        <input type="number" id="cantidadGasto">
-        <br>
-        <button id="agregarGasto">Agregar Gasto</button>
+    <div class="centered-container">
+        <div class="container">
+            <input type="text" id="nombreGasto" placeholder="Nombre del gasto">
+            <input type="number" id="cantidadGasto" placeholder="Cantidad">
+            <button id="agregarGasto">Agregar Gasto</button>
+
+            <h2>Lista de Gastos</h2>
+            <ul id="listaGastos"></ul>
+
+            <h2>Total de Gastos</h2>
+            <p id="totalGastos">0.00</p>
+        </div>
     </div>
-    <div>
-        <h2>Lista de Gastos</h2>
-        <ul id="listaGastos"></ul>
-        <p>Total de gastos: $<span id="totalGastos">0.00</span></p>
-    </div>
-    
+
     <script src="./cerutti.js"></script>
 </body>
 </html>

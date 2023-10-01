@@ -15,16 +15,19 @@ function agregarGasto() {
   const cantidadGasto = parseFloat(document.getElementById("cantidadGasto").value);
 
   if (nombreGasto && !isNaN(cantidadGasto)) {
-      let nuevoGasto = new Gasto(nombreGasto, cantidadGasto);
-      listaGastos.push(nuevoGasto);
+    let nuevoGasto = new Gasto(nombreGasto, cantidadGasto);
+    listaGastos.push(nuevoGasto);
 
-      // Actualizar la lista de gastos y el total
-      actualizarListaGastos();
-      actualizarTotalGastos();
+    // Actualizar la lista de gastos y el total
+    actualizarListaGastos();
+    actualizarTotalGastos();
 
-      // Limpiar los campos de entrada
-      document.getElementById("nombreGasto").value = "";
-      document.getElementById("cantidadGasto").value = "";
+    // Limpiar los campos de entrada
+    document.getElementById("nombreGasto").value = "";
+    document.getElementById("cantidadGasto").value = "";
+
+    // Guardar gastos en localStorage
+    guardarGastosEnLocalStorage();
   }
 }
 
@@ -32,7 +35,7 @@ function agregarGasto() {
 function calcularTotalGastos() {
   let total = 0;
   for (let gasto of listaGastos) {
-      total += gasto.cantidad;
+    total += gasto.cantidad;
   }
   return total;
 }
@@ -42,9 +45,9 @@ function actualizarListaGastos() {
   const listaGastosElement = document.getElementById("listaGastos");
   listaGastosElement.innerHTML = "";
   for (let gasto of listaGastos) {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${gasto.nombre}: $${gasto.cantidad.toFixed(2)}`;
-      listaGastosElement.appendChild(listItem);
+    const listItem = document.createElement("li");
+    listItem.textContent = `${gasto.nombre}: $${gasto.cantidad.toFixed(2)}`;
+    listaGastosElement.appendChild(listItem);
   }
 }
 
@@ -70,10 +73,29 @@ function guardarGastosEnLocalStorage() {
   localStorage.setItem("gastos", JSON.stringify(listaGastos));
 }
 
-// Actualizar gastos en localStorage cuando se agrega uno nuevo
-agregarGastoButton.addEventListener("click", guardarGastosEnLocalStorage);
-
 // Borrar datos de localStorage cuando la página se refresca
-window.addEventListener("beforeunload", function() {
+window.addEventListener("beforeunload", function () {
   localStorage.clear();
 });
+
+fetch("datos.json")
+  .then(function(response) {
+    // Verificar si la solicitud fue exitosa (código de respuesta 200)
+    if (response.ok) {
+      return response.json(); // Parsear la respuesta JSON
+    } else {
+      throw new Error('Error al cargar el archivo JSON. Código de respuesta: ' + response.status);
+    }
+  })
+  .then(function(data) {
+    // Manejar los datos JSON cargados aquí
+    console.log(data); // Aquí puedes acceder a los datos como un objeto JavaScript
+  })
+  .catch(function(error) {
+    // Manejar errores
+    console.error('Error al cargar el archivo JSON:', error);
+  });
+
+ 
+
+
